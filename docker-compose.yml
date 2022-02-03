@@ -2,14 +2,7 @@ version: '3'
 services:
   almservice:
     container_name: AlmService
-    image: testali:latest
+    image: almdocker:latest
     ports:
-      - 80:80
+      - 8080:8080
       - 443:443
-  dbservice:
-    container_name: DbService
-    image: mcr.microsoft.com/mssql/server:2017-latest
-    environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "GgOJ3O6bGWNPEdLL"
-      MSSQL_PID: "Standard"

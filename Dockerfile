@@ -1,13 +1,20 @@
-FROM alpine:latest
-RUN apk --no-cache add openjdk8-jre 
-RUN java -version
-RUN export PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk
-RUN export JAVA_PATH=/usr/lib/jvm/java-1.8-openjdk
-WORKDIR /usr
+FROM ubuntu:16.04
+RUN  sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror://mirrors.ubuntu.com/mirrors.txt!' /etc/apt/sources.list \
+    && apt-get update  -y \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository ppa:openjdk-r/ppa \
+    && apt-get install -y openjdk-8-jdk \
+    && rm -rf /var/lib/apt/lists/*
+
+# java
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
 RUN mkdir ./Install
 RUN mkdir ./Install/ALM
 COPY ./installation /usr/Install/ALM
-RUN apk add zip
+RUN apt-get update  -y \
+    && apt-get install -y zip unzip
 WORKDIR /usr/Install/ALM
 RUN : chmod -R 777 /usr/Install/ALM
+EXPOSE 8080
 CMD tail -f /dev/null
