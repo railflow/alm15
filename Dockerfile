@@ -8,6 +8,7 @@ RUN  sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror://mirrors.ubuntu.com/mirrors.t
 
 # java
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV MICRO_FOCUS_JAVA_PATH /usr/lib/jvm/java-8-openjdk-amd64
 
 RUN mkdir ./Install
 RUN mkdir ./Install/ALM

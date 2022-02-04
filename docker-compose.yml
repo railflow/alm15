@@ -6,3 +6,12 @@ services:
     ports:
       - 8080:8080
       - 443:443
+  dbservice:
+    container_name: DBService
+    image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+    environment:
+      - ACCEPT_EULA="Y"
+      - SA_PASSWORD=DAG1YKdQFbwn80sA
+      - MSSQL_PID=Standard
+    ports:
+      - 1433:1433
