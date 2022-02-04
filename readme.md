@@ -5,7 +5,7 @@
 to build the docker image plese execute this command
 
 ```shell 
-docker build -t almdocker:latest .
+docker build -t railflow/alm15 .
 ``` 
 
 ## Strarting the docker compose
