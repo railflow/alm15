@@ -16,7 +16,7 @@ to start the docker composer use the command
 ```shell 
 docker-compose up
 ``` 
-or in silent mode
+or in silent mode (favorite)
 
 ```shell 
 docker-compose up -d
