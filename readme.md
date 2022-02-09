@@ -2,7 +2,7 @@
 
 1. Installing Git Client
 2. Installing Docker
-3. Cloning the repo
+3. Cloning the repo :  ``` git clone https://github.com/railflow/alm15.git``` 
 4. Starting docker-compose ( silence mode)
 5. Accessing to the alm container
 6. Execute the installation script
