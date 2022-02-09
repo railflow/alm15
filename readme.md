@@ -67,6 +67,9 @@ Accessing to the application
 
 http://localhost:8080/qcbin/SiteAdmin.jsp
 
+or
+http://yourmachineip:8080/qcbin/SiteAdmin.jsp
+
 user: admin
 
 password:  DAG1YKdQFbwn80sA
