@@ -18,7 +18,8 @@ Please follow the instruction on the links
 
 [Installing Docker](https://docs.docker.com/engine/install/)
 
-for Windows user make sure that your version is professional one
+for Windows user make sure that your version is professional one.
+
 For Linux user you need to install also docker compose
 
 [Installing Docker-compose](https://docs.docker.com/compose/install/)
@@ -68,6 +69,7 @@ Accessing to the application
 http://localhost:8080/qcbin/SiteAdmin.jsp
 
 or
+
 http://yourmachineip:8080/qcbin/SiteAdmin.jsp
 
 user: admin
