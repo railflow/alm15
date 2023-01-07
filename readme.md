@@ -46,7 +46,7 @@ or in silent mode (favorite)
 ```shell 
 docker-compose up -d
 ``` 
-Once the docker-compose is up, it will install ALM automatically, you can examine logs in `/var/opt/ALM/log/`
+Once the docker-compose is up, it will install ALM automatically, you can examine installation logs in `/var/opt/Micro Focus/ALM/log/` directory
 
 to stop the execution
 
