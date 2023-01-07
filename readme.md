@@ -62,12 +62,6 @@ To access the running container to start the installation of alm
 ```shell 
 docker exec -it AlmService  bash
 ```
-once inside 
-
-```shell 
-root@1a7a7a55d5cd:/usr/Install/ALM# ./install_run.sh
-```
-this operation has to be done each time the docker-compose is restarted 
 
 Accessing to the application
 
