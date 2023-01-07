@@ -1,11 +1,10 @@
 # Instructions
 
 1. Installing Git Client
-2. Installing Docker
+2. Installing Docker and Docker Compose
 3. Cloning the repo :  ``` git clone https://github.com/railflow/alm15.git``` 
+5. Building docker image
 4. Starting docker-compose ( silence mode)
-5. Accessing to the alm container
-6. Execute the installation script
 
 ## Installing Git Client
 
@@ -24,8 +23,13 @@ For Linux user you need to install also docker compose
 
 [Installing Docker-compose](https://docs.docker.com/compose/install/)
 
+## Building docker image
 
- 
+To build docker image run:
+
+```shell
+docker build -t railflow/alm15 .
+```
 
 ## Strarting the docker compose
 
@@ -42,8 +46,9 @@ or in silent mode (favorite)
 ```shell 
 docker-compose up -d
 ``` 
+Once the docker-compose is up, it will install ALM automatically, you can examine logs in `/var/opt/ALM/log/`
 
-to stop the esecution
+to stop the execution
 
 ```shell 
 docker-compose down
@@ -72,6 +77,6 @@ or
 
 http://yourmachineip:8080/qcbin/SiteAdmin.jsp
 
-user: admin
+user: almadmin
 
-password:  DAG1YKdQFbwn80sA
+password:  password8931
