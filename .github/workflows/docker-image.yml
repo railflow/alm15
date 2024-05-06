@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code 2
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Login to Docker Hub
@@ -31,3 +31,4 @@ jobs:
       run: |
         docker tag $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME
         docker push $DOCKER_USERNAME/$IMAGE_NAME
+
