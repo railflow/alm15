@@ -5,7 +5,7 @@
 3. Cloning the repo :  ``` git clone https://github.com/railflow/alm15.git``` 
 5. Building docker image
 4. Starting docker-compose ( silence mode)
-
+a
 ## Installing Git Client
 
 [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
