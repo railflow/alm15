@@ -18,5 +18,4 @@ COPY validations.xml ./script/install_run.sh wait-for-it.sh qcConfigFile.propert
 RUN chmod +x ALM_installer.bin install_run.sh run_silent.sh
 
 EXPOSE 8080
-ENTRYPOINT ["bash", "-c"]
-CMD ["bash"]
+CMD ["bash", "./install_run.sh"]
