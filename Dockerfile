@@ -1,27 +1,22 @@
-FROM ubuntu:16.04
-RUN  sed -i.bak -r 's!(deb|deb-src) \S+!\1 mirror://mirrors.ubuntu.com/mirrors.txt!' /etc/apt/sources.list \
-    && apt-get update  -y \
-    && apt-get install -y software-properties-common \
-    && add-apt-repository ppa:openjdk-r/ppa \
-    && apt-get install -y openjdk-8-jdk \
-    && apt-get install -y wget \
-    && rm -rf /var/lib/apt/lists/*
+FROM adoptopenjdk/openjdk8 as alm-source
 
-# java
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-ENV MICRO_FOCUS_JAVA_PATH /usr/lib/jvm/java-8-openjdk-amd64
+WORKDIR /usr/Install/ALM/installation
+RUN apt-get update -y \
+    && apt-get install -y unzip wget
+RUN wget --quiet https://railflow.sfo3.digitaloceanspaces.com/downloads/alm-24.zip \
+    && unzip alm-24.zip \
+    && rm alm-24.zip
 
-RUN mkdir ./Install
-RUN mkdir ./Install/ALM
-RUN mkdir ./Install/ALM/installation
-RUN apt-get update  -y \
-    && apt-get install -y zip unzip
-WORKDIR /usr/Install/ALM
-RUN wget https://hp-shit.s3.us-west-2.amazonaws.com/ALM_15.0.1_Linux_English.zip && unzip ALM_15.0.1_Linux_English.zip
-COPY ./validations.xml /usr/Install/ALM/
-COPY ./qcConfigFile.properties /usr/Install/ALM/
-COPY ./script/install_run.sh /usr/Install/ALM/
-COPY ./wait-for-it.sh /usr/Install/ALM/
-RUN chmod -R 777 /usr/Install/ALM/*
+FROM adoptopenjdk/openjdk8 as alm-install
+
+ENV JAVA_HOME /opt/java/openjdk
+ENV MICRO_FOCUS_JAVA_PATH /opt/java/openjdk
+
+COPY --from=alm-source /usr/Install/ALM/installation/ALM_24.1_Linux_English /usr/Install/ALM/installation
+WORKDIR /usr/Install/ALM/installation
+COPY validations.xml ./script/install_run.sh wait-for-it.sh qcConfigFile.properties ./
+RUN chmod +x ALM_installer.bin install_run.sh run_silent.sh
+
 EXPOSE 8080
-CMD tail -f /dev/null
+ENTRYPOINT ["bash", "-c"]
+CMD ["bash"]

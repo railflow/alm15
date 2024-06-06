@@ -2,17 +2,14 @@ version: '3'
 services:
   almservice:
     container_name: AlmService
-    image: railflow/alm15
+    build: .
     ports:
       - 8080:8080
       - 443:443
-    command: 
-        - bash 
-        - -c
-        - |
-          ./wait-for-it.sh DBService:1433 -t 120 -- echo "DBService is up and running"
-          ./install_run.sh
-          tail -f /dev/null
+    command: |
+      ./wait-for-it.sh DBService:1433 -t 120 -- echo "DBService is up and running"
+      ./install_run.sh
+      tail -f /dev/null
     depends_on:
       - "dbservice"
   dbservice:
