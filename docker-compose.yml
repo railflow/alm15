@@ -14,7 +14,7 @@ services:
       - "dbservice"
   dbservice:
     container_name: DBService
-    image: mcr.microsoft.com/mssql/server:2017-CU17-ubuntu
+    image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "DAG1YKdQFbwn80sA"
