@@ -5,7 +5,7 @@
 3. Cloning the repo :  ``` git clone https://github.com/railflow/alm15.git``` 
 5. Building docker image
 4. Starting docker-compose ( silence mode)
-a
+
 ## Installing Git Client
 
 [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -55,22 +55,12 @@ docker-compose down
 ``` 
 this will remove the container you will loose all the data.
 
-## Accessing to the alm container
+## Accessing the ALM container
 
-To access the running container to start the installation of alm 
+- To access the running container to start the installation of alm:
 
-```shell 
-docker exec -it AlmService  bash
-```
+  ```shell
+  docker compose run almservice bash
+  ```
 
-Accessing to the application
-
-http://localhost:8080/qcbin/SiteAdmin.jsp
-
-or
-
-http://yourmachineip:8080/qcbin/SiteAdmin.jsp
-
-user: almadmin
-
-password:  password8931
+- To access to the web application, visit either <http://localhost:8080/qcbin/SiteAdmin.jsp> or <http://yourmachineip:8080/qcbin/SiteAdmin.jsp>.
