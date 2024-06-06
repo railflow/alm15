@@ -14,8 +14,8 @@ ENV MICRO_FOCUS_JAVA_PATH /opt/java/openjdk
 
 COPY --from=alm-source /usr/Install/ALM/installation/ALM_24.1_Linux_English /usr/Install/ALM/installation
 WORKDIR /usr/Install/ALM/installation
-COPY validations.xml ./script/install_run.sh wait-for-it.sh qcConfigFile.properties ./
-RUN chmod +x ALM_installer.bin install_run.sh run_silent.sh
+COPY validations.xml ./script/install_run.sh qcConfigFile.properties ./
+RUN chmod +x ALM_installer.bin install_run.sh
 
 EXPOSE 8080
 CMD ["bash", "./install_run.sh"]

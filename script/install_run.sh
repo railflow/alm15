@@ -2,5 +2,7 @@
 
 set -euxo pipefail
 
-./run_silent.sh
+./ALM_installer.bin -i silent
+echo Installation completed. >&2
+
 /var/opt/ALM/wrapper/HPALM start
