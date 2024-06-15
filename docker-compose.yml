@@ -1,13 +1,21 @@
 version: '3'
 services:
   almservice:
-    build: .
-    # command: tail -f /dev/null
+    container_name: AlmService
+    image: railflow/alm15
     ports:
       - 8080:8080
     depends_on:
       - "dbservice"
+    command: 
+        - bash 
+        - -c
+        - |
+          ./wait-for-it.sh dbservice:1433 -t 120 -- echo "DBService is up and running"
+          ./install_run.sh
+          tail -f /dev/null
   dbservice:
+    container_name: DBService
     image: mcr.microsoft.com/mssql/server:2019-latest
     environment:
       ACCEPT_EULA: "Y"
