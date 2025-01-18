@@ -17,11 +17,13 @@ RUN wget --quiet https://hp-shit.s3.us-west-2.amazonaws.com/alm-16.zip \
     && rm alm-16.zip
 
 FROM adoptopenjdk/openjdk8 AS alm-install
+RUN apt-get update -y \
+    && apt-get install -y unzip wget
 
 ENV JAVA_HOME=/opt/java/openjdk
 ENV MICRO_FOCUS_JAVA_PATH=/opt/java/openjdk
 
-COPY --from=alm-source /usr/Install/ALM/installation/ALM_15.0.1_Linux_English /usr/Install/ALM/installation
+COPY --from=alm-source /usr/Install/ALM/installation/ /usr/Install/ALM/installation/
 WORKDIR /usr/Install/ALM/installation
 
 # Make sure these files exist in your build context
