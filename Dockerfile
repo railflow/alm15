@@ -12,7 +12,7 @@ WORKDIR /usr/Install/ALM/installation
 RUN apt-get update -y \
     && apt-get install -y unzip wget
 
-RUN wget --quiet https://hp-shit.s3.us-west-2.amazonaws.com/alm-16.zip \
+RUN wget --quiet https://railflow.sfo3.digitaloceanspaces.com/downloads/alm-16.zip \
     && unzip alm-16.zip \
     && rm alm-16.zip
 
