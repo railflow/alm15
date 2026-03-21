@@ -17,7 +17,7 @@ RUN mkdir ./Install/ALM/installation
 RUN apt-get update  -y \
     && apt-get install -y zip unzip
 WORKDIR /usr/Install/ALM
-RUN wget https://shit.sfo3.digitaloceanspaces.com/ALM_16.0_Linux_English.zip && unzip ALM_16.0_Linux_English.zip
+RUN wget https://shit.sfo3.digitaloceanspaces.com/alm-24.zip && unzip alm-24.zip
 COPY ./validations.xml /usr/Install/ALM/
 COPY ./qcConfigFile.properties /usr/Install/ALM/
 COPY ./script/install_run.sh /usr/Install/ALM/
